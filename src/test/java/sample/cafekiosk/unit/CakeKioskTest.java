@@ -3,6 +3,7 @@ package sample.cafekiosk.unit;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
 import sample.cafekiosk.unit.beverage.Latte;
+import sample.cafekiosk.unit.order.Order;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -77,6 +78,18 @@ class CakeKioskTest {
         //제거 테스트
         cakeKiosk.clear();
         assertThat(cakeKiosk.getBeverages()).isEmpty();
+    }
+
+    @Test
+    void createOrder() {
+        CakeKiosk cakeKiosk = new CakeKiosk();
+        Americano americano = new Americano();
+        cakeKiosk.add(americano);
+
+        Order order = cakeKiosk.createOrder();
+
+        assertThat(order.getBeverages()).hasSize(1);
+        assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노") ;
     }
 
 }
