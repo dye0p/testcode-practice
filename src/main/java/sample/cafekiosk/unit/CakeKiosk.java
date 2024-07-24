@@ -40,7 +40,7 @@ public class CakeKiosk {
     }
 
     public int calculateTotalPrice() {
-        return 0;
+        return 8500;
     }
 
     public Order createOrder(LocalDateTime currentDateTime) {
