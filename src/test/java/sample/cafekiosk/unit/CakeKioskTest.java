@@ -18,7 +18,7 @@ class CakeKioskTest {
         cakeKiosk.add(new Americano());
 
         System.out.println(">>> 담긴 음료수 : " + cakeKiosk.getBeverages().size());
-        System.out.println(">>> 담긴 음료 : " + cakeKiosk.getBeverages().get(0).getName() );
+        System.out.println(">>> 담긴 음료 : " + cakeKiosk.getBeverages().get(0).getName());
     }
 
     @Test
@@ -82,17 +82,20 @@ class CakeKioskTest {
         assertThat(cakeKiosk.getBeverages()).isEmpty();
     }
 
-//    @Test
-//    void createOrder() {
-//        CakeKiosk cakeKiosk = new CakeKiosk();
-//        Americano americano = new Americano();
-//        cakeKiosk.add(americano);
-//
-//        Order order = cakeKiosk.createOrder();
-//
-//        assertThat(order.getBeverages()).hasSize(1);
-//        assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노") ;
-//    }
+    @Test
+    void calculateTotalPrice() {
+        CakeKiosk cakeKiosk = new CakeKiosk();
+
+        Americano americano = new Americano();
+        Latte latte = new Latte();
+
+        cakeKiosk.add(americano);
+        cakeKiosk.add(latte);
+
+        int totalPrice = cakeKiosk.calculateTotalPrice();
+
+        assertThat(totalPrice).isEqualTo(8500);
+    }
 
     @Test
     void createOrderWithCurrentTime() {
@@ -104,7 +107,7 @@ class CakeKioskTest {
         Order order = cakeKiosk.createOrder(LocalDateTime.of(2024, 7, 23, 10, 0));
 
         assertThat(order.getBeverages()).hasSize(1);
-        assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노") ;
+        assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
     }
 
     @Test

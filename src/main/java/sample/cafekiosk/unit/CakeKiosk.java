@@ -40,12 +40,7 @@ public class CakeKiosk {
     }
 
     public int calculateTotalPrice() {
-        int totalPrice = 0;
-
-        for (Beverage beverage : beverages) {
-            totalPrice += beverage.getPrice();
-        }
-        return totalPrice;
+        return 0;
     }
 
     public Order createOrder(LocalDateTime currentDateTime) {
