@@ -1,5 +1,6 @@
 package sample.cafekiosk.unit;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
 import sample.cafekiosk.unit.beverage.Latte;
@@ -21,6 +22,7 @@ class CakeKioskTest {
         System.out.println(">>> 담긴 음료 : " + cakeKiosk.getBeverages().get(0).getName());
     }
 
+    @DisplayName("음료를 1개 추가하면 주문목록에 담긴다")
     @Test
     void add() {
         CakeKiosk cakeKiosk = new CakeKiosk();
