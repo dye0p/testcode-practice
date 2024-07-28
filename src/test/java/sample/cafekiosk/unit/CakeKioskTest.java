@@ -84,18 +84,21 @@ class CakeKioskTest {
         assertThat(cakeKiosk.getBeverages()).isEmpty();
     }
 
+    @DisplayName("주문목록에 담긴 상품들의 총 가격을 계산할 수 있다.")
     @Test
     void calculateTotalPrice() {
+        //given
         CakeKiosk cakeKiosk = new CakeKiosk();
-
         Americano americano = new Americano();
         Latte latte = new Latte();
 
         cakeKiosk.add(americano);
         cakeKiosk.add(latte);
 
+        //when
         int totalPrice = cakeKiosk.calculateTotalPrice();
 
+        //then
         assertThat(totalPrice).isEqualTo(8500);
     }
 
