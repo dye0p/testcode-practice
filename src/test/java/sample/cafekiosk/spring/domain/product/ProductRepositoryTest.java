@@ -62,7 +62,6 @@ class ProductRepositoryTest {
                 );
     }
 
-
     @DisplayName("상품번호 리스트로 상품들을 조회한다")
     @Test
     void findAllByProductNumberIn() {
