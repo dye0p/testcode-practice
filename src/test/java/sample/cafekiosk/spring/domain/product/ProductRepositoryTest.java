@@ -14,6 +14,7 @@ import static sample.cafekiosk.spring.domain.product.ProductSellingStatus.*;
 
 @ActiveProfiles("test")
 @SpringBootTest
+//@DataJpaTest
 class ProductRepositoryTest {
 
     @Autowired

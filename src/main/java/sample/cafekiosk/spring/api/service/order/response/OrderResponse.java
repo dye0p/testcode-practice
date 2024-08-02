@@ -17,11 +17,11 @@ public class OrderResponse {
     private List<ProductResponse> products;
 
     @Builder
-    public OrderResponse(Long id, List<ProductResponse> products, LocalDateTime registeredDateTime, int totalPrice) {
+    private OrderResponse(Long id, int totalPrice, LocalDateTime registeredDateTime, List<ProductResponse> products) {
         this.id = id;
-        this.products = products;
-        this.registeredDateTime = registeredDateTime;
         this.totalPrice = totalPrice;
+        this.registeredDateTime = registeredDateTime;
+        this.products = products;
     }
 
     public static OrderResponse of(Order order) {
