@@ -33,6 +33,5 @@ public class OrderResponse {
                         .map(orderProduct -> ProductResponse.of(orderProduct.getProduct()))
                         .toList())
                 .build();
-
     }
 }
