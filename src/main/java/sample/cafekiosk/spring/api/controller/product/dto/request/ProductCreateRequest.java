@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import sample.cafekiosk.spring.domain.product.Product;
+import sample.cafekiosk.spring.api.service.product.request.ProductCreateServiceRequest;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
@@ -27,20 +27,20 @@ public class ProductCreateRequest {
     private int price;
 
     @Builder
-    public ProductCreateRequest(String name, int price, ProductSellingStatus sellingStatus, ProductType type) {
+    public ProductCreateRequest(ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
+        this.type = type;
+        this.sellingStatus = sellingStatus;
         this.name = name;
         this.price = price;
-        this.sellingStatus = sellingStatus;
-        this.type = type;
     }
 
-    public Product toEntity(String nextProductNumber) {
-        return Product.builder()
+    public ProductCreateServiceRequest toServiceRequest() {
+        return ProductCreateServiceRequest.builder()
                 .type(type)
+                .sellingStatus(sellingStatus)
                 .name(name)
                 .price(price)
-                .sellingStatus(sellingStatus)
-                .productNumber(nextProductNumber)
                 .build();
+
     }
 }
